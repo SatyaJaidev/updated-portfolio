@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Code2, Layout, Server, Database, Wrench, Binary, ActivitySquare } from "lucide-react"
 import SkillsRadar from "./skills-radar"
+import Image from "next/image"
 
 export default function TechStack() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -18,13 +19,11 @@ export default function TechStack() {
       title: "Programming Languages",
       description: "Core languages for systems and application development",
       skills: [
-        { name: "C++", level: 90 },
-        { name: "C", level: 55 },
-        { name: "JavaScript", level: 90 },
-        { name: "Java", level: 88 },
-        { name: "Python", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "Ruby", level: 40 },
+        { name: "C++", level: 90, image: "/C++.png" },
+        { name: "JavaScript", level: 90, image: "/JavaScript.png" },
+        { name: "Java", level: 88, image: "/Java.png" },
+        { name: "Python", level: 95, image: "/Python.png" },
+        { name: "TypeScript", level: 90, image: "/Typescript.png" },
       ],
     },
     concepts: {
@@ -32,12 +31,9 @@ export default function TechStack() {
       title: "Engineering Concepts",
       description: "Fundamental software engineering principles",
       skills: [
-        { name: "Data Structures", level: 95 },
-        { name: "Algorithms", level: 90 },
-        { name: "OOP", level: 95 },
-        { name: "Design Patterns", level: 85 },
-        { name: "System Design", level: 80 },
-        { name: "Multithreading", level: 85 },
+        { name: "Data Structures", level: 95, image: "/dsa.png" },
+        { name: "OOP", level: 95, image: "/oop.png" },
+        { name: "Multithreading", level: 85, image: "/multi.png" },
       ],
     },
     frontend: {
@@ -45,16 +41,15 @@ export default function TechStack() {
       title: "Full Stack",
       description: "Modern web development technologies",
       skills: [
-        { name: "React", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "HTML/CSS", level: 95 },
-        { name: "Tailwind CSS", level: 95 },
-        { name: "Redux", level: 85 },
-        { name: "Three.js", level: 75 },
-        { name: "Node.js", level: 85 },
-        { name: "Express", level: 80 },
-        { name: "Spring Boot", level: 85 },
-        { name: "Ruby on Rails", level: 80 },
+        { name: "React", level: 90, image: "/React.png" },
+        { name: "Next.js", level: 85, image: "/nextjs2.png" },
+        { name: "HTML5", level: 95, image: "/HTML5.png" },
+        { name: "CSS3", level: 95, image: "/CSS3.png" },
+        { name: "Tailwind", level: 95, image: "/Tailwind CSS.png" },
+        { name: "Redux", level: 85, image: "/Redux.png" },
+        { name: "Three.js", level: 75, image: "/threejs2.png" },
+        { name: "Node.js", level: 85, image: "/Node.js.png" },
+        { name: "Express", level: 80, image: "/expressjs2.png" },
       ],
     },
     backend: {
@@ -62,12 +57,11 @@ export default function TechStack() {
       title: "Data Analytics",
       description: "Server-side frameworks and technologies",
       skills: [
-        { name: "R", level: 85 },
-        { name: "ETL", level: 80 },
-        { name: "Power BI", level: 90 },
-        { name: "Tableau", level: 85 },
-        { name: "Google Analytics", level: 90},
-        { name: "Excel", level: 90},
+        { name: "R", level: 85, image: "/R.png" },
+        { name: "Power BI", level: 90, image: "/powerbi.png" },
+        { name: "Tableau", level: 85, image: "/Tableau.png" },
+        { name: "Google Analytics", level: 90, image: "/GoogleA.png" },
+        { name: "Excel", level: 90, image: "/Excel.png" },
       ],
     },
     database: {
@@ -75,10 +69,9 @@ export default function TechStack() {
       title: "Database Systems",
       description: "Database management and optimization",
       skills: [
-        { name: "MongoDB", level: 85 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MySQL", level: 75 },
-        { name: "Redis", level: 25 },
+        { name: "MongoDB", level: 85, image: "/MongoDB.png" },
+        { name: "PostgreSQL", level: 80, image: "/PostgresSQL.png" },
+        { name: "SQL", level: 75, image: "/SQL Developer.png" },
       ],
     },
     tools: {
@@ -86,16 +79,17 @@ export default function TechStack() {
       title: "Development Tools",
       description: "Tools and environments for development",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 80 },
-        { name: "AWS", level: 80 },
-        { name: "Postman", level: 75 },
-        { name: "Figma", level: 80 },
-        { name: "Firebase", level: 95 },
-        { name: "Wordpress", level: 95 },
-        { name: "Adobe Illustrator", level: 75 },
-        { name: "Visual Studio", level: 85 },
-        { name: "canva", level: 95 },
+        { name: "Git", level: 90, image: "/Git.png" },
+        { name: "Docker", level: 80, image: "/Docker.png" },
+        {name : "Github", level: 90, image: "/GitHub.png"},
+        { name: "AWS", level: 80, image: "/Aws.png" },
+        { name: "Postman", level: 75, image: "/Postman.png" },
+        { name: "Figma", level: 80, image: "/Figma.png" },
+        { name: "Azure", level: 85, image: "/Azure.png"},
+        { name: "Firebase", level: 95, image: "/Firebase.png" },
+        { name: "WordPress", level: 95, image: "/Wordpress.png" },
+        { name: "Adobe Illustrator", level: 75, image: "/Adobe Illustrator.png" },
+        { name: "Canva", level: 95, image: "/Canva.png" },
       ],
     },
   }
@@ -121,9 +115,7 @@ export default function TechStack() {
           variants={fadeIn}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="mb-4">
-            Skills
-          </Badge>
+          <Badge variant="outline" className="mb-4">Skills</Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </motion.div>
@@ -138,23 +130,24 @@ export default function TechStack() {
               transition={{ duration: 0.5 }}
               variants={scaleUp}
             >
-              <Card 
+              <Card
                 className={`h-full cursor-pointer transition-all duration-300 hover:shadow-lg relative ${
                   selectedCategory === key ? "ring-2 ring-primary" : ""
                 }`}
                 onClick={() => setSelectedCategory(selectedCategory === key ? null : key)}
               >
-                <Button 
-                  size="sm" 
-                  variant="outline" 
+                <Button
+                  size="sm"
+                  variant="outline"
                   className="absolute top-4 right-4 h-7 px-3 rounded-full text-xs z-10 hover:bg-primary hover:text-primary-foreground transition-colors"
                   onClick={(e) => {
-                    e.stopPropagation();
-                    setShowRadar(showRadar === key ? null : key);
+                    e.stopPropagation()
+                    setShowRadar(showRadar === key ? null : key)
                   }}
                 >
                   <ActivitySquare className="h-4 w-4" />
                 </Button>
+
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="bg-primary/10 p-3 rounded-full">{category.icon}</div>
@@ -173,41 +166,35 @@ export default function TechStack() {
                         transition={{ duration: 0.3 }}
                         className="space-y-4"
                       >
-                        {category.skills.map((skill, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="space-y-2"
-                          >
-                            <div className="flex justify-between text-sm">
-                              <span className="font-medium">{skill.name}</span>
-                              <span className="text-muted-foreground">{skill.level}%</span>
-                            </div>
-                            <div className="w-full bg-muted rounded-full h-1.5">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: `${skill.level}%` }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-primary h-1.5 rounded-full"
+                        <div className="flex flex-wrap justify-start gap-4">
+                          {category.skills.map((skill, i) => (
+                            <div key={i} className="flex flex-col items-center w-20">
+                              <Image
+                                src={skill.image!}
+                                alt={skill.name}
+                                width={40}
+                                height={40}
+                                className="rounded mb-1 transition-transform duration-300 ease-in-out hover:scale-125"
                               />
+                              <span className="text-xs sm:text-sm text-center font-medium">
+                                {skill.name}
+                              </span>
                             </div>
-                          </motion.div>
-                        ))}
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
                   {selectedCategory !== key && (
                     <div className="mt-4 flex flex-wrap gap-2">
-                      {category.skills.slice(0, 3).map((skill, index) => (
-                        <Badge key={index} variant="secondary">
-                          {skill.name}
-                        </Badge>
+                      {category.skills.slice(0, 3).map((skill, i) => (
+                        <Badge key={i} variant="secondary">{skill.name}</Badge>
                       ))}
                       {category.skills.length > 3 && (
-                        <Badge variant="secondary">+{category.skills.length - 3} more</Badge>
+                        <Badge variant="secondary">
+                          +{category.skills.length - 3} more
+                        </Badge>
                       )}
                     </div>
                   )}
@@ -216,7 +203,7 @@ export default function TechStack() {
                 <AnimatePresence>
                   {showRadar === key && (
                     <SkillsRadar
-                      skills={category.skills}
+                      skills={category.skills.filter((s): s is { name: string; level: number } => "level" in s)}
                       title={category.title}
                       onClose={() => setShowRadar(null)}
                     />
@@ -244,4 +231,3 @@ export default function TechStack() {
     </section>
   )
 }
-

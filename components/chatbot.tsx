@@ -31,7 +31,12 @@ const formatTimestamp = () => {
   return `${hours}:${minutes}:${seconds}`
 }
 
-export default function Chatbot() {
+interface ChatbotProps {
+  isMobile?: boolean;
+  isSmallPhone?: boolean;
+}
+
+export default function Chatbot({ isMobile = false, isSmallPhone = false }: ChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputMessage, setInputMessage] = useState("")
   const [isTyping, setIsTyping] = useState(false)
@@ -105,77 +110,75 @@ export default function Chatbot() {
   }
 
   return (
-    <section id="chat" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <Badge variant="outline" className="mb-4">
-            Chat
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Chat with my personalized AI assistant</h2>
-          <div className="w-20 h-1 bg-primary mx-auto"></div>
-        </motion.div>
-
-        <div className="max-w-2xl mx-auto">
-          <Card className="border-2">
-            <CardContent className="p-6">
-              <ScrollArea className="h-[400px] pr-4">
-                <div className="space-y-4">
-                  {messages.map((message, index) => (
-                    <div
-                      key={index}
-                      className={`flex ${
-                        message.role === "user" ? "justify-end" : "justify-start"
-                      }`}
-                    >
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className={`max-w-[80%] ${
-                          message.role === "user"
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted"
-                        } rounded-lg p-4`}
-                      >
-                        <p>{message.content}</p>
-                        <span className="text-xs opacity-70 mt-1 block">
-                          {message.timestamp}
-                        </span>
-                      </motion.div>
-                    </div>
-                  ))}
-                  {isTyping && (
-                    <div className="flex justify-start">
-                      <div className="bg-muted rounded-lg p-4">
-                        <div className="flex space-x-2">
-                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-100"></div>
-                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce delay-200"></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </ScrollArea>
-              <div className="flex gap-2 mt-4">
-                <Input
-                  value={inputMessage}
-                  onChange={(e) => setInputMessage(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Type your message..."
-                />
-                <Button onClick={handleSend}>Send</Button>
+    <div className={`h-full flex flex-col ${isMobile ? 'pt-12 sm:pt-16' : ''}`}>
+      <div className="flex-1 overflow-hidden">
+        <ScrollArea className={`${
+          isMobile 
+            ? isSmallPhone 
+              ? 'h-[300px]' 
+              : 'h-[350px] sm:h-[400px]'
+            : 'h-[500px]'
+        } pr-2 sm:pr-4`}>
+          <div className="px-3 sm:px-4 py-2 sm:py-3">
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`flex ${
+                  message.role === "user" ? "justify-end" : "justify-start"
+                } mb-2 sm:mb-4`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className={`max-w-[85%] ${
+                    message.role === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted"
+                  } rounded-lg p-2 sm:p-4`}
+                >
+                  <p className="text-xs sm:text-sm md:text-base leading-relaxed">
+                    {message.content}
+                  </p>
+                  <span className="text-[10px] sm:text-xs opacity-70 mt-1 block">
+                    {message.timestamp}
+                  </span>
+                </motion.div>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-muted rounded-lg p-2 sm:p-4">
+                  <div className="flex space-x-1 sm:space-x-2">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-bounce"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-bounce delay-100"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-bounce delay-200"></div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </ScrollArea>
+      </div>
+      
+      <div className="p-2 sm:p-4 border-t">
+        <div className="flex gap-1 sm:gap-2">
+          <Input
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSend()}
+            placeholder="Type your message..."
+            className="text-xs sm:text-sm md:text-base h-8 sm:h-10"
+          />
+          <Button 
+            onClick={handleSend} 
+            size={isSmallPhone ? "sm" : "default"}
+            className="h-8 w-8 sm:h-10 sm:w-10 p-0"
+          >
+            <Send className="h-3 w-3 sm:h-4 sm:w-4" />
+          </Button>
         </div>
       </div>
-    </section>
+    </div>
   )
 } 

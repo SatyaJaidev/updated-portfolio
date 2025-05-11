@@ -15,7 +15,7 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: "Quantumverse AI",
-    role: "Software Development Engineer",
+    role: "Software Engineer",
     date: "Jan 2025 - Present",
     description: "Refactored Python code in iterations to improve performance and enhance platform efficiency by 50%, while designing and implementing a persistent caching solution from start to finish, reducing calls to the downstream API by 95%. Additionally, developed and maintained AWS Lambda functions to manage backend processes and conducted comprehensive API unit testing using Postman, ensuring enhanced reliability and functionality of system integrations by 100%.",
     techStack: ["Astro", "Python","AWS Lambda", "Postman", "API"]
@@ -24,7 +24,7 @@ const experiences: ExperienceItem[] = [
     company: "Next Enti",
     role: "Co-Founder & Technical Lead",
     date: "Present",
-    description: "Co-founded and led as the front end developerof an innovative SaaS platform." ,
+    description: "We developed an interactive platform using React, Three.js, and JavaScript that attracted over 1,000 global user sign-ups within the first 24 hours of launch. The platform featured secure authentication and login systems powered by Firebase and offered a rich, intuitive user experience through extensive testing and fine-tuning. I streamlined deployment using Render, managed version control with Git, and automated production releases via CI/CD pipelines to ensure smooth and efficient delivery." ,
     techStack: ["React", "Python", "LLM", "Postman", "Firebase", "Render", "MUI",]
   },
   {
@@ -32,7 +32,7 @@ const experiences: ExperienceItem[] = [
     role: "Graduate Engineer Intern",
     date: "Jan 2023 - July 2023",
     description: "Developed a real-time E-commerce platform using the MERN stack, RESTful API, and SQL databases, serving 1,000+ unique visitors and boosting user retention by 20%, while leveraging strong problem-solving skills. Designed responsive and user-friendly front-end components with React.js, enhancing user engagement by 15%, and managed MongoDB databases to handle 10,000+ daily financial transactions with zero inconsistencies. Additionally, developed Fintech features using Node.js and MongoDB, including user authentication and transaction management, increasing system reliability by 25%.",
-    techStack: ["MERN", "RESTful API", "SQL"]
+    techStack: ["MERN", "RESTful API", "SQL", "Google Analytics", "HTML", "CSS", "Python"]
   },
   // Add more experiences as needed
 ]

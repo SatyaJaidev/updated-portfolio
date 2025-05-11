@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from "react"
@@ -26,12 +25,12 @@ export default function Contact() {
     visible: { opacity: 1, y: 0 },
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
@@ -74,7 +73,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
@@ -84,7 +83,7 @@ export default function Contact() {
           variants={fadeIn}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 text-white border-white/20">
             Contact
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -100,12 +99,12 @@ export default function Contact() {
             variants={fadeIn}
             className="lg:col-span-2"
           >
-            <Card>
+            <Card className="bg-black/50 border-white/10">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Your Name</Label>
+                      <Label htmlFor="name" className="text-white">Your Name</Label>
                       <Input
                         id="name"
                         name="name"
@@ -113,10 +112,11 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        className="bg-black/50 border-white/20 text-white placeholder:text-white/50"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Your Email</Label>
+                      <Label htmlFor="email" className="text-white">Your Email</Label>
                       <Input
                         id="email"
                         name="email"
@@ -125,11 +125,12 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        className="bg-black/50 border-white/20 text-white placeholder:text-white/50"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject" className="text-white">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
@@ -137,10 +138,11 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
+                      className="bg-black/50 border-white/20 text-white placeholder:text-white/50"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-white">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -149,9 +151,10 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
+                      className="bg-black/50 border-white/20 text-white placeholder:text-white/50"
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -168,18 +171,18 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <Card key={index}>
+                <Card key={index} className="bg-black/50 border-white/10">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-primary/10 p-3 rounded-full">{info.icon}</div>
                       <div>
-                        <h4 className="text-lg font-semibold mb-1">{info.title}</h4>
+                        <h4 className="text-lg font-semibold mb-1 text-white">{info.title}</h4>
                         {info.link ? (
-                          <a href={info.link} className="text-muted-foreground hover:text-primary transition-colors">
+                          <a href={info.link} className="text-white/70 hover:text-primary transition-colors">
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="text-white/70">{info.value}</p>
                         )}
                       </div>
                     </div>
@@ -187,26 +190,26 @@ export default function Contact() {
                 </Card>
               ))}
 
-              <Card className="mt-8">
+              <Card className="mt-8 bg-black/50 border-white/10">
                 <CardContent className="p-6">
-                  <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
+                  <h4 className="text-lg font-semibold mb-4 text-white">Follow Me</h4>
                   <div className="flex gap-4">
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10" asChild>
                       <a href="http://www.linkedin.com/in/satyajaidev" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10" asChild>
                       <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         <Twitter className="h-5 w-5" />
                       </a>
                     </Button>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10" asChild>
                       <a href="https://github.com/SatyaJaidev" target="_blank" rel="noopener noreferrer">
                         <Github className="h-5 w-5" />
                       </a>
                     </Button>
-                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10" asChild>
                       <a href="mailto:nsatyajaidev21@gmail.com" target="_blank" rel="noopener noreferrer">
                         <Mail className="h-5 w-5" />
                       </a>

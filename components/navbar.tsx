@@ -38,7 +38,6 @@ export default function Navbar() {
     { name: "Experience", href: "experience" },
     { name: "Education", href: "education" },
     { name: "Projects", href: "projects" },
-    { name: "Chat", href: "chat" },
     { name: "Contact", href: "contact" },
   ]
 
@@ -71,9 +70,6 @@ export default function Navbar() {
             </a>
             <a href="#projects" className="text-sm font-medium hover:text-primary transition-colors">
               Projects
-            </a>
-            <a href="#chat" className="text-sm font-medium hover:text-primary transition-colors">
-              Chat
             </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact

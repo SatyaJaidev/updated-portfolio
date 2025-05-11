@@ -5,10 +5,10 @@ import TechStack from "@/components/tech-stack"
 import Experience from "@/components/experience"
 import Education from "@/components/education"
 import Projects from "@/components/projects"
-import Chatbot from "@/components/chatbot"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
+import FloatingChat from "@/components/floating-chat"
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -26,10 +26,10 @@ export default function Home() {
         <Experience />
         <Education />
         <Projects />
-        <Chatbot />
         <Contact />
       </main>
       <Footer />
+      <FloatingChat />
     </div>
   )
 }

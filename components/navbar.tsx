@@ -77,7 +77,7 @@ export default function Navbar() {
             <Button
               variant="secondary"
               className="bg-purple-600 hover:bg-purple-700 text-white"
-              onClick={() => window.open('/Satya Jaidev N.pdf', '_blank')}
+              onClick={() => window.open('/Satya Jaidev Nethi - SDE(2+yrs).pdf', '_blank')}
             >
               Resume
             </Button>
@@ -107,7 +107,7 @@ export default function Navbar() {
               <Button
                 variant="secondary"
                 className="bg-purple-600 hover:bg-purple-700 text-white"
-                onClick={() => window.open('/Satya Jaidev N.pdf', '_blank')}
+                onClick={() => window.open('/Satya Jaidev Nethi - SDE(2+yrs).pdf', '_blank')}
               >
                 Resume
               </Button>
